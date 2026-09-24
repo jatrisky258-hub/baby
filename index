@@ -1,0 +1,437 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Love ❤️</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: "Comic Sans MS", cursive, sans-serif;
+            background: linear-gradient(135deg, #ffd6e7, #fff0f5);
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            padding: 30px;
+            position: relative;
+            z-index: 2;
+        }
+
+        h1 {
+            color: #ff4f81;
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #777;
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        button {
+            border: none;
+            padding: 16px 35px;
+            font-size: 20px;
+            font-family: inherit;
+            border-radius: 50px;
+            background: #ff5c8a;
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(255, 92, 138, 0.35);
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.08);
+            background: #ff3f76;
+        }
+
+        #surprise {
+            display: none;
+            animation: appear 1s ease forwards;
+        }
+
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* TEDDY */
+
+        .teddy {
+            position: relative;
+            width: 220px;
+            height: 260px;
+            margin: 20px auto;
+        }
+
+        .ear {
+            position: absolute;
+            width: 65px;
+            height: 65px;
+            background: #b87952;
+            border-radius: 50%;
+            top: 5px;
+            z-index: 1;
+        }
+
+        .ear::after {
+            content: "";
+            position: absolute;
+            width: 35px;
+            height: 35px;
+            background: #e8aa91;
+            border-radius: 50%;
+            top: 15px;
+            left: 15px;
+        }
+
+        .ear.left {
+            left: 20px;
+        }
+
+        .ear.right {
+            right: 20px;
+        }
+
+        .head {
+            position: absolute;
+            width: 155px;
+            height: 145px;
+            background: #c98b65;
+            border-radius: 50%;
+            top: 25px;
+            left: 33px;
+            z-index: 2;
+            box-shadow: inset 0 -5px 0 rgba(0,0,0,0.05);
+        }
+
+        .eye {
+            position: absolute;
+            width: 14px;
+            height: 18px;
+            background: #2d211d;
+            border-radius: 50%;
+            top: 62px;
+        }
+
+        .eye.left {
+            left: 43px;
+        }
+
+        .eye.right {
+            right: 43px;
+        }
+
+        .snout {
+            position: absolute;
+            width: 75px;
+            height: 55px;
+            background: #e7b18e;
+            border-radius: 50%;
+            left: 40px;
+            top: 78px;
+        }
+
+        .nose {
+            position: absolute;
+            width: 22px;
+            height: 15px;
+            background: #4b2b25;
+            border-radius: 50%;
+            left: 26px;
+            top: 8px;
+        }
+
+        .mouth {
+            position: absolute;
+            width: 28px;
+            height: 15px;
+            border-bottom: 3px solid #4b2b25;
+            border-radius: 50%;
+            left: 24px;
+            top: 20px;
+        }
+
+        .body {
+            position: absolute;
+            width: 135px;
+            height: 125px;
+            background: #b87952;
+            border-radius: 50%;
+            left: 42px;
+            top: 135px;
+        }
+
+        .belly {
+            position: absolute;
+            width: 80px;
+            height: 70px;
+            background: #e7b18e;
+            border-radius: 50%;
+            left: 28px;
+            top: 25px;
+        }
+
+        /* ARMS */
+
+        .arm {
+            position: absolute;
+            width: 65px;
+            height: 32px;
+            background: #b87952;
+            border-radius: 30px;
+            top: 160px;
+            z-index: 4;
+        }
+
+        .arm.left {
+            left: 8px;
+            transform: rotate(25deg);
+        }
+
+        .arm.right {
+            right: 8px;
+            transform: rotate(-25deg);
+        }
+
+        /* ROSE */
+
+        .rose {
+            position: absolute;
+            z-index: 6;
+            left: 78px;
+            top: 150px;
+            transform: rotate(-8deg);
+            animation: roseFloat 2s infinite ease-in-out;
+        }
+
+        .flower {
+            font-size: 48px;
+            filter: drop-shadow(0 3px 3px rgba(0,0,0,0.15));
+        }
+
+        .stem {
+            width: 5px;
+            height: 65px;
+            background: #3c9b4a;
+            margin: -5px auto 0;
+            border-radius: 5px;
+        }
+
+        .leaf {
+            position: absolute;
+            width: 24px;
+            height: 12px;
+            background: #3c9b4a;
+            border-radius: 100% 0;
+            top: 48px;
+            left: -15px;
+            transform: rotate(-25deg);
+        }
+
+        @keyframes roseFloat {
+            0%, 100% {
+                transform: rotate(-8deg) translateY(0);
+            }
+
+            50% {
+                transform: rotate(-8deg) translateY(-7px);
+            }
+        }
+
+        .message {
+            margin-top: 10px;
+            color: #ff477e;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .small-message {
+            color: #777;
+            font-size: 17px;
+            max-width: 420px;
+            margin: 10px auto;
+            line-height: 1.6;
+        }
+
+        .hearts {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 25px;
+            animation: fall linear forwards;
+        }
+
+        @keyframes fall {
+            from {
+                transform: translateY(-50px) rotate(0deg);
+                opacity: 1;
+            }
+
+            to {
+                transform: translateY(110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .love {
+            margin-top: 20px;
+            font-size: 20px;
+            color: #ff5c8a;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="hearts" id="hearts"></div>
+
+<div class="container">
+
+    <div id="start">
+        <h1>Heyyy My Love ❤️</h1>
+
+        <p class="subtitle">
+            I made a little something for you... 🥺
+        </p>
+
+        <button onclick="showSurprise()">
+            Click Here 🥺💗
+        </button>
+    </div>
+
+
+    <div id="surprise">
+
+        <div class="teddy">
+
+            <!-- Ears -->
+            <div class="ear left"></div>
+            <div class="ear right"></div>
+
+            <!-- Head -->
+            <div class="head">
+
+                <div class="eye left"></div>
+                <div class="eye right"></div>
+
+                <div class="snout">
+                    <div class="nose"></div>
+                    <div class="mouth"></div>
+                </div>
+
+            </div>
+
+            <!-- Body -->
+            <div class="body">
+                <div class="belly"></div>
+            </div>
+
+            <!-- Arms -->
+            <div class="arm left"></div>
+            <div class="arm right"></div>
+
+            <!-- Rose -->
+            <div class="rose">
+                <div class="flower">🌹</div>
+                <div class="stem"></div>
+                <div class="leaf"></div>
+            </div>
+
+        </div>
+
+        <div class="message">
+            I'm Sorry Babyyy 🥺❤️
+        </div>
+
+        <div class="small-message">
+            Please forgive your stupid boy 🥺👉👈
+            <br>
+            I never meant to hurt you.
+            <br>
+            This rose is for my favourite person 🌹❤️
+        </div>
+
+        <div class="love">
+            I Love Youuuuu ❤️🧸🌹
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+function showSurprise() {
+
+    document.getElementById("start").style.display = "none";
+
+    document.getElementById("surprise").style.display = "block";
+
+    createHearts();
+
+}
+
+
+function createHearts() {
+
+    const container = document.getElementById("hearts");
+
+    const emojis = ["❤️", "💕", "💗", "💖", "🌹", "✨"];
+
+    for (let i = 0; i < 35; i++) {
+
+        const heart = document.createElement("div");
+
+        heart.className = "heart";
+
+        heart.innerHTML =
+            emojis[Math.floor(Math.random() * emojis.length)];
+
+        heart.style.left =
+            Math.random() * 100 + "vw";
+
+        heart.style.animationDuration =
+            (3 + Math.random() * 4) + "s";
+
+        heart.style.animationDelay =
+            Math.random() * 2 + "s";
+
+        container.appendChild(heart);
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
+```
